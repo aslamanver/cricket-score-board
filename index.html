@@ -334,7 +334,26 @@
       localStorage.setItem("scRuns", nRuns);
     }
     function clrAll() {
+      localStorage.setItem("teamName", 'teamName');
+      $('#team-name-div').text('teamName');
 
+      localStorage.setItem("sponserName", 'sponserName');
+      $('#sponser-name-div').text('sponserName');
+
+      localStorage.setItem("sponserImg", 'https://placehold.it/100x100');
+      $('#sponser-img-div').attr('src', 'https://placehold.it/100x100');
+
+      localStorage.setItem("target", 0);
+      $('#target').val(0);
+
+      localStorage.setItem("scRuns", 0);
+      $('#sc-runs').text(0);
+
+      localStorage.setItem("scOvrs", 0);
+      $('#sc-ovrs').text(0);
+
+      localStorage.setItem("over2", 0);
+      $('#over-2').text(0);
     }
     function addOvrs(x) {
       var cOvrs = parseInt($('#sc-ovrs').text());
