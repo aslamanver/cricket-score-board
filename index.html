@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>All about Cricket</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  <style media="screen">
+  @import url('https://fonts.googleapis.com/css?family=Abel|Arima+Madurai|Cinzel|Cormorant+Garamond|Courgette|Dancing+Script|Dosis|Hind|Hind+Siliguri|Istok+Web|Josefin+Sans|Josefin+Slab|Merriweather+Sans|Montserrat|News+Cycle|Noto+Sans|Nunito+Sans|Open+Sans|Oxygen|Poiret+One|Questrial|Quicksand|Raleway|Roboto|Ropa+Sans|Rubik|Ubuntu|Varela+Round|Work+Sans|Rancho');
+  @import url('https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i');
+  /* Fonts
+  --------------------------------------------------
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Raleway', sans-serif;
+    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Dosis', sans-serif;
+    font-family: 'Oxygen', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Work Sans', sans-serif;
+    font-family: 'Rubik', sans-serif;
+    font-family: 'Quicksand', sans-serif;
+    font-family: 'Hind', sans-serif;
+    font-family: 'Abel', sans-serif;
+    font-family: 'Varela Round', sans-serif;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Questrial', sans-serif;
+    font-family: 'Hind Siliguri', sans-serif;
+    font-family: 'Cinzel', serif;
+    font-family: 'Courgette', cursive;
+    font-family: 'Ropa Sans', sans-serif;
+    font-family: 'Josefin Slab', serif;
+    font-family: 'News Cycle', sans-serif;
+    font-family: 'Istok Web', sans-serif;
+    font-family: 'Poiret One', cursive;
+    font-family: 'Arima Madurai', cursive;
+    font-family: 'Rancho', cursive;
+    font-family: 'Nunito', sans-serif;
+  -------------------------------------------------- */
+    :root {
+      --pad-normal:20px;
+    }
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      /* background: #ffffff; */
+      background: black;
+      font-family: 'Nunito', sans-serif;
+      color:#fff;
+    }
+    .small-box-shadow {box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)}
+    .page-wrapper {
+      display: grid;
+      grid-template-areas:
+      'sponser-info'
+      'team-info'
+      'score-info';
+      grid-template-rows: 2fr 1fr 10fr;
+      height: 100%;
+    }
+    .sponser-info {
+      grid-area: sponser-info;
+      text-align: center;
+      padding: var(--pad-normal);
+      /* border-bottom: 2px solid #f7f7f7; */
+      background: rgb(196, 58, 58);
+    }
+    .team-info {
+      grid-area: team-info;
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      text-align: center;
+      padding: 5px;
+      /* border-bottom: 2px solid #f7f7f7; */
+    }
+    .score-info {
+      grid-area: score-info;
+      display: grid;
+      grid-template-areas:
+      'score-row-1'
+      'score-row-2';
+      grid-template-rows: 3fr 1fr;
+    }
+    .sponser-info .row {
+      height: 100%;
+    }
+    .sponser-info .row .cols {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+    }
+    .vcols {
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      text-align: center;
+    }
+    .vrows {
+      height: 100%;
+    }
+    .sponser-img {
+      height: 60px;
+    }
+    .sponser-name {
+      text-align: left;
+      font-size: 32px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .team-info-box {
+      /* font-family: 'Merriweather Sans', sans-serif; */
+      padding-top: 5px;
+      text-align: center;
+      /* width: 100px; */
+      font-size: 22px;
+      font-weight: 800;
+      background: #fff;
+      color:black;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    .score-row-1 {
+      grid-area: score-row-1;
+      /* background: red; */
+      /* padding: 20px; */
+      padding-top: 15px;
+    }
+    .score-row-2 {
+      grid-area: score-row-2;
+      /* background: blue; */
+    }
+    .sc-runs, .sc-ovr {
+      border: 5px solid white;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      color:white;
+      font-size: 200px;
+    }
+    .sc-dash {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      color:white;
+      font-size: 150px;
+    }
+    .sc-btn {
+      border-radius: 0;
+      margin: 10px 5px 10px 5px;
+      opacity: .1;
+      transition: ease all .7s;
+    }
+    .sc-btn:hover {
+      opacity: 1;
+    }
+    .sc-2 {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      color:white;
+      font-size: 50px;
+    }
+    .sc-2-br {
+      border: solid 2px white;
+    }
+    .vcols-score-pad {
+      padding: 20px;
+    }
+    .input-sc {
+      background: transparent;
+    }
+    .clrpick {
+      width: 20px;
+      border:0;
+      padding: 0;
+      position: absolute;
+      z-index:100001;
+      opacity: .1;
+      transition: ease all .2s;
+      right:0
+    }
+    .clrpick:hover {
+      opacity: 1;
+    }
+    .clrch {
+
+    }
+    .modal {
+      color:#777;
+    }
+  </style>
+  <script type="text/javascript">
+    $(document).ready(function(){
+
+      if (typeof(Storage) !== "undefined") {
+        if(!localStorage.getItem("scRuns")) {
+          localStorage.setItem("scRuns", 0);
+          $('#sc-runs').text(localStorage.getItem("scRuns"));
+        }
+        else {
+          $('#sc-runs').text(localStorage.getItem("scRuns"));
+        }
+
+        if(!localStorage.getItem("scOvrs")) {
+          localStorage.setItem("scOvrs", 0);
+          $('#sc-ovrs').text(localStorage.getItem("scOvrs"));
+        }
+        else {
+          $('#sc-ovrs').text(localStorage.getItem("scOvrs"));
+        }
+
+        if(!localStorage.getItem("over2")) {
+          localStorage.setItem("over2", 0);
+          $('#over-2').text(localStorage.getItem("over2"));
+        }
+        else {
+          $('#over-2').text(localStorage.getItem("over2"));
+        }
+
+        if(!localStorage.getItem("target")) {
+          localStorage.setItem("target", 0);
+          $('#target').val(localStorage.getItem("target"));
+        }
+        else {
+          $('#target').val(localStorage.getItem("target"));
+        }
+
+        if(!localStorage.getItem("teamName")) {
+          localStorage.setItem("teamName", 'teamName');
+          $('#team-name-div').text(localStorage.getItem("teamName"));
+          $('#team-name-txt').val(localStorage.getItem("teamName"));
+        }
+        else {
+          $('#team-name-div').text(localStorage.getItem("teamName"));
+          $('#team-name-txt').val(localStorage.getItem("teamName"));
+        }
+
+        if(!localStorage.getItem("sponserName")) {
+          localStorage.setItem("sponserName", 'sponserName');
+          $('#sponser-name-div').text(localStorage.getItem("sponserName"));
+          $('#sponser-name-txt').val(localStorage.getItem("sponserName"));
+        }
+        else {
+          $('#sponser-name-div').text(localStorage.getItem("sponserName"));
+          $('#sponser-name-txt').val(localStorage.getItem("sponserName"));
+        }
+
+        if(!localStorage.getItem("sponserImg")) {
+          localStorage.setItem("sponserImg", 'https://placehold.it/100x100');
+          $('#sponser-img-div').attr('src', localStorage.getItem("sponserImg"));
+        }
+        else {
+          $('#sponser-img-div').attr('src', localStorage.getItem("sponserImg"));
+        }
+
+      } else {
+          alert('LocalStorage does not support');
+      }
+
+      $('.clrpick').change(function(){
+        $(this).parent().css('background', $(this).val());
+      });
+
+      $('#target').keyup(function(){
+        localStorage.setItem("target", $(this).val());
+      });
+
+      $('#team-name-txt').keyup(function(){
+        localStorage.setItem("teamName", $(this).val());
+        $('#team-name-div').text(localStorage.getItem("teamName"));
+      });
+
+      $('#sponser-name-txt').keyup(function(){
+        localStorage.setItem("sponserName", $(this).val());
+        $('#sponser-name-div').text(localStorage.getItem("sponserName"));
+      });
+
+      $("#sponser-img-file").change(function(){
+         if($(this).val().length > 0) {
+           if (this.files && this.files[0]) {
+               var reader = new FileReader();
+               reader.onload = function (e) {
+                 bImg = e.target.result
+                 localStorage.setItem("sponserImg", bImg);
+                 $('#sponser-img-div').attr('src', bImg);
+                 alert('Success');
+               }
+               reader.readAsDataURL(this.files[0]);
+           }
+         }
+         else {
+           $('#sponser-img-div').attr('src', 'https://placehold.it/100x100');
+         }
+       });
+
+    });
+
+    jQuery(document).keydown(function(event) {
+        if((event.ctrlKey || event.metaKey) && event.which == 32) {
+            $('#myModal').modal('show');
+            event.preventDefault();
+            return false;
+        }
+      }
+    );
+
+    function addRuns(x) {
+      var cRuns = parseInt($('#sc-runs').text());
+      var nRuns = x + cRuns;
+      $('#sc-runs').text(nRuns);
+      localStorage.setItem("scRuns", nRuns);
+    }
+    function clrAll() {
+
+    }
+    function addOvrs(x) {
+      var cOvrs = parseInt($('#sc-ovrs').text());
+      var nOvrs = x + cOvrs;
+      $('#sc-ovrs').text(nOvrs);
+      localStorage.setItem("scOvrs", nOvrs);
+    }
+    function addOvr2(x) {
+      var cOvrs = parseInt($('#over-2').text());
+      var nOvrs = x + cOvrs;
+      $('#over-2').text(nOvrs);
+      localStorage.setItem("over2", nOvrs);
+    }
+  </script>
+</head>
+<body>
+
+<div class="page-wrapper">
+  <section class="sponser-info">
+    <input type="color" style="" value="" class="clrpick" />
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-1 cols">
+          <img id="sponser-img-div" class="sponser-img small-box-shadow" src="" alt="">
+        </div>
+        <div class="col-md-11 cols">
+          <h1 class="sponser-name" id="sponser-name-div"></h1>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="team-info">
+    <input type="color" style="" value="" class="clrpick" />
+    <div class="team-info-box" id="team-name-div"></div>
+  </section>
+  <section class="score-info">
+    <div class="score-row-1 clrch">
+      <input type="color" style="" value="" class="clrpick" />
+      <div class="container-fluid vrows">
+        <div class="row vrows">
+          <div class="col-md-7 vcols vcols-score">
+            <div class="sc-runs" id="sc-runs"></div>
+          </div>
+          <div class="col-md-1 vcols vcols-score">
+            <div class="sc-dash">
+              -
+            </div>
+          </div>
+          <div class="col-md-4 vcols vcols-score">
+            <div class="sc-ovr" id="sc-ovrs"></div>
+          </div>
+          <div class="col-md-7" style="text-align:right">
+            <button onclick="clrAll()" style="margin-left:0" type="button" class="btn btn-danger sc-btn">X</button>
+            <button onclick="addRuns(-1)" type="button" class="btn btn-danger sc-btn">-1</button>
+            <button onclick="addRuns(6)" type="button" class="btn btn-danger sc-btn">6</button>
+            <button onclick="addRuns(4)" type="button" class="btn btn-danger sc-btn">4</button>
+            <button onclick="addRuns(1)" style="margin-right:0" type="button" class="btn btn-danger sc-btn">1</button>
+          </div>
+          <div class="col-md-1"></div>
+          <div class="col-md-4">
+            <button onclick="addOvrs(1)" style="margin-left:0" type="button" class="btn btn-danger sc-btn">+</button>
+            <button onclick="addOvrs(-1)" style="margin-right:0"type="button" class="btn btn-danger sc-btn">-</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="score-row-2 clrch">
+      <input type="color" style="" value="" class="clrpick" />
+      <div class="container-fluid vrows">
+        <div class="row vrows">
+          <div class="col-md-5 vcols vcols-score vcols-score-pad">
+            <span class="sc-2">Over</span>
+            <span class="sc-2 sc-2-br" id="over-2"></span>
+          </div>
+          <div class="col-md-1 vcols vcols-score">
+            <span class="sc-2">
+              <button onclick="addOvr2(1)" type="button"class="btn btn-danger sc-btn">+</button>
+              <button onclick="addOvr2(-1)" type="button"class="btn btn-danger sc-btn">-</button>
+            </span>
+          </div>
+          <div class="col-md-6 vcols vcols-score vcols-score-pad">
+            <span class="sc-2">Target</span>
+            <input type="text" value="" class="sc-2 sc-2-br input-sc" id="target">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Settings</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+
+        <form action="#">
+          <div class="form-group">
+            <label>Sponser:</label>
+            <input type="text" class="form-control" id="sponser-name-txt">
+          </div>
+          <div class="form-group">
+            <label>Team:</label>
+            <input type="text" class="form-control" id="team-name-txt">
+          </div>
+          <div class="form-group">
+            <label>Sponser Image:</label>
+            <input type="file" class="form-control" id="sponser-img-file">
+          </div>
+        </form>
+
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
